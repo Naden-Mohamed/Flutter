@@ -1,4 +1,6 @@
 //import 'dart:html';
+import 'package:newtry/styles/app_style.dart';
+
 import 'Login.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         theme: ThemeData(
           fontFamily: 'Urbanist',
-          scaffoldBackgroundColor: Color(0xff10293f),
+          scaffoldBackgroundColor: AppColors.background,
           brightness: Brightness.dark,
         ),
         home: Login());
