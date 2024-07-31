@@ -1,41 +1,45 @@
 import 'main.dart';
 import 'package:flutter/material.dart';
+import 'HomePage.dart';
 
 class Login extends StatelessWidget {
   const Login({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    //check SingleChildScrollView for scrolling and it's child sizedbox(height:  MediaQuery.of(context).size.height) for screen height scale issues
     return Scaffold(
+      resizeToAvoidBottomInset:
+          false, //to avoid border overflow when keyboard appears
       body: Padding(
-        padding: EdgeInsets.all(24),
+        padding: const EdgeInsets.all(24),
         child: Column(children: [
-          Spacer(),
-          Text(
+          const Spacer(),
+          const Text(
             'Hello Welcome back',
             style: TextStyle(
                 color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
           ),
-          SizedBox(
+          const SizedBox(
             width: 30,
           ),
-          Text(
+          const Text(
             'Log in to continue',
             style: TextStyle(color: Colors.white, fontSize: 15),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           TextField(
             keyboardType: TextInputType.name,
             decoration: InputDecoration(
                 hintText: "Enter your Username",
-                border: OutlineInputBorder(
+                border: const OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(12))),
                 filled: true,
                 fillColor: Colors.white.withOpacity(0.5)),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           TextField(
@@ -43,7 +47,7 @@ class Login extends StatelessWidget {
             keyboardType: TextInputType.visiblePassword,
             decoration: InputDecoration(
                 hintText: "Enter your Password",
-                border: OutlineInputBorder(
+                border: const OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(12))),
                 filled: true,
                 fillColor: Colors.white.withOpacity(0.5)),
@@ -56,68 +60,80 @@ class Login extends StatelessWidget {
                       foregroundColor: Colors.white,
                       backgroundColor: Colors.transparent),
                   child: const Text('Forget Password?'))),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           SizedBox(
               width: 220,
               height: 40,
               child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) {
+                      return HomePage();
+                    }));
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.amber,
                     foregroundColor: Colors.black,
                   ),
                   child: const Text('Log in'))),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           const Text('or sign in with'),
-          SizedBox(
-            height: 15,
+          const SizedBox(
+            height: 20,
           ),
-          ElevatedButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.white,
-                foregroundColor: Colors.black,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(21)))),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  'assets/images/google.png',
-                  width: 22,
-                  height: 22,
-                ),
-                const Text('Sign in with google'),
-              ],
+          SizedBox(
+            height: 40,
+            child: ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                  foregroundColor: Colors.black,
+                  shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(21)))),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    'assets/images/google.png',
+                    width: 22,
+                    height: 22,
+                  ),
+                  const Text('Sign in with google'),
+                ],
+              ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
-          ElevatedButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.white,
-                foregroundColor: Colors.black,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(21)))),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  'assets/images/facebook.png',
-                  width: 22,
-                  height: 22,
-                ),
-                const Text('Sign in with Facebook'),
-              ],
+          SizedBox(
+            height: 40,
+            //width: double.infinity  make it fill the full size
+            child: ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                  foregroundColor: Colors.black,
+                  shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(21)))),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    'assets/images/facebook.png',
+                    width: 22,
+                    height: 22,
+                  ),
+                  const Text('Sign in with Facebook'),
+                ],
+              ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           Row(
@@ -133,7 +149,7 @@ class Login extends StatelessWidget {
                   ))
             ],
           ),
-          Spacer(),
+          const Spacer(),
         ]),
       ),
     );
